@@ -31,6 +31,7 @@
             font-family: 'Lato', sans-serif;
             overflow-x: hidden;
             position: relative;
+            background: #2D0A0A;
         }
 
         body::before {
@@ -43,7 +44,7 @@
             background: linear-gradient(-45deg, #2D0A0A, #4A0E0E, #1A1A1A, #3D1010, #2D0A0A);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
-            z-index: -1;
+            z-index: 0;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -58,76 +59,96 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Wine Bubbles Animation - Fast and Playful */
+        /* Wine Bubbles Animation - On the sides */
         .wine-bubble {
             position: fixed;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(166, 38, 38, 0.4), rgba(139, 30, 30, 0.2));
-            animation: bubbleRise 4s ease-in infinite;
+            background: radial-gradient(circle at 30% 30%, rgba(200, 60, 60, 0.5), rgba(139, 30, 30, 0.3));
+            box-shadow: 0 0 10px rgba(200, 60, 60, 0.3);
+            animation: bubbleRise 6s ease-in infinite;
             pointer-events: none;
+            z-index: 1;
         }
 
         @keyframes bubbleRise {
             0% {
-                transform: translateY(0) translateX(0) scale(0);
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: translateY(90vh) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(20px) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Wine bubbles on LEFT side */
+        .wine-bubble.left:nth-child(1) { left: 2%; width: 12px; height: 12px; animation-delay: 0s; animation-duration: 7s; }
+        .wine-bubble.left:nth-child(2) { left: 5%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 6.5s; }
+        .wine-bubble.left:nth-child(3) { left: 3%; width: 10px; height: 10px; animation-delay: 3s; animation-duration: 7.5s; }
+        .wine-bubble.left:nth-child(4) { left: 6%; width: 14px; height: 14px; animation-delay: 4.5s; animation-duration: 6s; }
+        .wine-bubble.left:nth-child(5) { left: 4%; width: 9px; height: 9px; animation-delay: 6s; animation-duration: 8s; }
+        .wine-bubble.left:nth-child(6) { left: 7%; width: 11px; height: 11px; animation-delay: 2s; animation-duration: 7s; }
+        .wine-bubble.left:nth-child(7) { left: 2.5%; width: 13px; height: 13px; animation-delay: 5s; animation-duration: 6.8s; }
+        .wine-bubble.left:nth-child(8) { left: 5.5%; width: 10px; height: 10px; animation-delay: 3.5s; animation-duration: 7.2s; }
+
+        /* Wine bubbles on RIGHT side */
+        .wine-bubble.right:nth-child(9) { right: 2%; width: 12px; height: 12px; animation-delay: 0.5s; animation-duration: 7s; }
+        .wine-bubble.right:nth-child(10) { right: 5%; width: 8px; height: 8px; animation-delay: 2s; animation-duration: 6.5s; }
+        .wine-bubble.right:nth-child(11) { right: 3%; width: 10px; height: 10px; animation-delay: 3.5s; animation-duration: 7.5s; }
+        .wine-bubble.right:nth-child(12) { right: 6%; width: 14px; height: 14px; animation-delay: 5s; animation-duration: 6s; }
+        .wine-bubble.right:nth-child(13) { right: 4%; width: 9px; height: 9px; animation-delay: 1s; animation-duration: 8s; }
+        .wine-bubble.right:nth-child(14) { right: 7%; width: 11px; height: 11px; animation-delay: 2.5s; animation-duration: 7s; }
+        .wine-bubble.right:nth-child(15) { right: 2.5%; width: 13px; height: 13px; animation-delay: 5.5s; animation-duration: 6.8s; }
+        .wine-bubble.right:nth-child(16) { right: 5.5%; width: 10px; height: 10px; animation-delay: 4s; animation-duration: 7.2s; }
+
+        /* Meat Chunks Animation - Slow floating shapes */
+        .meat-chunk {
+            position: fixed;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            background: radial-gradient(ellipse at 40% 40%, rgba(140, 30, 30, 0.4), rgba(100, 20, 20, 0.3));
+            animation: meatFloat 40s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(1px);
+        }
+
+        @keyframes meatFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
                 opacity: 0;
             }
             10% {
                 opacity: 0.6;
-                transform: scale(1);
             }
             50% {
-                opacity: 0.4;
+                transform: translate(30px, -50vh) rotate(180deg);
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.3;
             }
             100% {
-                transform: translateY(-100vh) translateX(30px) scale(0.5);
+                transform: translate(60px, -100vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Generate random positions and delays for wine bubbles */
-        .wine-bubble:nth-child(1) { left: 5%; width: 8px; height: 8px; animation-delay: 0s; animation-duration: 3s; }
-        .wine-bubble:nth-child(2) { left: 15%; width: 6px; height: 6px; animation-delay: 0.5s; animation-duration: 3.5s; }
-        .wine-bubble:nth-child(3) { left: 25%; width: 10px; height: 10px; animation-delay: 1s; animation-duration: 4s; }
-        .wine-bubble:nth-child(4) { left: 35%; width: 7px; height: 7px; animation-delay: 1.5s; animation-duration: 3.2s; }
-        .wine-bubble:nth-child(5) { left: 45%; width: 9px; height: 9px; animation-delay: 2s; animation-duration: 3.8s; }
-        .wine-bubble:nth-child(6) { left: 55%; width: 6px; height: 6px; animation-delay: 0.3s; animation-duration: 3.3s; }
-        .wine-bubble:nth-child(7) { left: 65%; width: 8px; height: 8px; animation-delay: 0.8s; animation-duration: 3.6s; }
-        .wine-bubble:nth-child(8) { left: 75%; width: 10px; height: 10px; animation-delay: 1.3s; animation-duration: 4.2s; }
-        .wine-bubble:nth-child(9) { left: 85%; width: 7px; height: 7px; animation-delay: 1.8s; animation-duration: 3.4s; }
-        .wine-bubble:nth-child(10) { left: 95%; width: 9px; height: 9px; animation-delay: 2.3s; animation-duration: 3.9s; }
-        .wine-bubble:nth-child(11) { left: 10%; width: 8px; height: 8px; animation-delay: 2.8s; animation-duration: 3.7s; }
-        .wine-bubble:nth-child(12) { left: 20%; width: 6px; height: 6px; animation-delay: 0.2s; animation-duration: 3.5s; }
-        .wine-bubble:nth-child(13) { left: 30%; width: 10px; height: 10px; animation-delay: 0.7s; animation-duration: 4.1s; }
-        .wine-bubble:nth-child(14) { left: 40%; width: 7px; height: 7px; animation-delay: 1.2s; animation-duration: 3.3s; }
-        .wine-bubble:nth-child(15) { left: 50%; width: 9px; height: 9px; animation-delay: 1.7s; animation-duration: 3.8s; }
-        .wine-bubble:nth-child(16) { left: 60%; width: 8px; height: 8px; animation-delay: 2.2s; animation-duration: 3.6s; }
-        .wine-bubble:nth-child(17) { left: 70%; width: 6px; height: 6px; animation-delay: 2.7s; animation-duration: 3.4s; }
-        .wine-bubble:nth-child(18) { left: 80%; width: 10px; height: 10px; animation-delay: 0.4s; animation-duration: 4s; }
-        .wine-bubble:nth-child(19) { left: 90%; width: 7px; height: 7px; animation-delay: 0.9s; animation-duration: 3.5s; }
-        .wine-bubble:nth-child(20) { left: 12%; width: 9px; height: 9px; animation-delay: 1.4s; animation-duration: 3.7s; }
-
-        /* Floating Particles Animation - Larger and Slower */
-        .particle {
-            position: fixed;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            animation: floatSlow 35s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) translateX(80px) rotate(360deg); opacity: 0; }
-        }
-
-        .particle:nth-child(1) { left: 10%; width: 120px; height: 120px; animation-delay: 0s; animation-duration: 40s; }
-        .particle:nth-child(2) { left: 30%; width: 90px; height: 90px; animation-delay: 8s; animation-duration: 45s; }
-        .particle:nth-child(3) { left: 50%; width: 150px; height: 150px; animation-delay: 16s; animation-duration: 35s; }
-        .particle:nth-child(4) { left: 70%; width: 110px; height: 110px; animation-delay: 24s; animation-duration: 42s; }
-        .particle:nth-child(5) { left: 85%; width: 130px; height: 130px; animation-delay: 5s; animation-duration: 38s; }
+        .meat-chunk:nth-child(1) { left: 15%; top: 100%; width: 80px; height: 60px; animation-delay: 0s; animation-duration: 45s; }
+        .meat-chunk:nth-child(2) { left: 70%; top: 100%; width: 100px; height: 80px; animation-delay: 8s; animation-duration: 50s; }
+        .meat-chunk:nth-child(3) { left: 40%; top: 100%; width: 90px; height: 70px; animation-delay: 16s; animation-duration: 48s; }
+        .meat-chunk:nth-child(4) { left: 85%; top: 100%; width: 70px; height: 55px; animation-delay: 24s; animation-duration: 42s; }
+        .meat-chunk:nth-child(5) { left: 25%; top: 100%; width: 95px; height: 75px; animation-delay: 32s; animation-duration: 46s; }
+        .meat-chunk:nth-child(6) { left: 60%; top: 100%; width: 85px; height: 65px; animation-delay: 12s; animation-duration: 44s; }
 
         /* Fade In Up Animation */
         .fade-in-up {
@@ -184,7 +205,7 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) var(--background);
+            scrollbar-color: var(--primary) rgba(255,255,255,0.1);
         }
 
         .scroll-gallery::-webkit-scrollbar {
@@ -192,7 +213,7 @@
         }
 
         .scroll-gallery::-webkit-scrollbar-track {
-            background: var(--background);
+            background: rgba(255,255,255,0.1);
         }
 
         .scroll-gallery::-webkit-scrollbar-thumb {
@@ -246,7 +267,7 @@
         .menu-item:hover {
             border-left: 3px solid var(--primary);
             padding-left: 1.5rem;
-            background: rgba(166, 38, 38, 0.05);
+            background: rgba(166, 38, 38, 0.15);
         }
 
         /* Spinning Animation for Decorative Elements */
@@ -259,42 +280,48 @@
             animation: spin-slow 60s linear infinite;
         }
 
-        /* Content sections with background */
+        /* Content sections */
         .content-section {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+        }
+
+        /* Card backgrounds for readability */
+        .content-card {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(166, 38, 38, 0.2);
         }
     </style>
 </head>
-<body class="text-[#0D0D0D]">
-    <!-- Wine Bubbles - Fast and Playful -->
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
-    <div class="wine-bubble"></div>
+<body class="text-white">
+    <!-- Wine Bubbles on LEFT side -->
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
+    <div class="wine-bubble left"></div>
 
-    <!-- Floating Particles - Larger and Slower -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+    <!-- Wine Bubbles on RIGHT side -->
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+    <div class="wine-bubble right"></div>
+
+    <!-- Meat Chunks - Slow floating -->
+    <div class="meat-chunk"></div>
+    <div class="meat-chunk"></div>
+    <div class="meat-chunk"></div>
+    <div class="meat-chunk"></div>
+    <div class="meat-chunk"></div>
+    <div class="meat-chunk"></div>
 
     <!-- Sticky Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm transition-all duration-300">
@@ -338,9 +365,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden content-section">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
         <!-- Content -->
         <div class="relative z-10 text-center px-6">
             <h1 class="text-6xl md:text-8xl text-white mb-6 text-glow" style="font-weight: 200;">
@@ -363,21 +387,21 @@
     </section>
 
     <!-- Our Story Section -->
-    <section id="story" class="py-20 px-6 bg-white bg-opacity-95 content-section">
+    <section id="story" class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-6xl">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in-up">
                     <h2 class="text-4xl md:text-5xl mb-6 text-[#A62626]">Our Story</h2>
-                    <p class="text-lg text-[#595959] mb-6 leading-relaxed">
+                    <p class="text-lg text-gray-200 mb-6 leading-relaxed">
                         Inspired by the iconic Spanish film <em>Jamón Jamón</em> starring Penélope Cruz and Javier Bardem,
                         our restaurant embodies the same passion, drama, and celebration of life that made the film unforgettable.
                     </p>
-                    <p class="text-lg text-[#595959] mb-6 leading-relaxed">
+                    <p class="text-lg text-gray-200 mb-6 leading-relaxed">
                         Founded by Argentinian restaurateur <strong>Sergio Bevilacqua</strong>, who brings over three decades
                         of gastronomic excellence, Jamon Jamon is where Mediterranean sophistication meets Italian warmth,
                         with a passionate Spanish heart.
                     </p>
-                    <p class="text-lg text-[#595959] mb-6 leading-relaxed">
+                    <p class="text-lg text-gray-200 mb-6 leading-relaxed">
                         Under the expert guidance of <strong>Chef Manuel Naula</strong>, we create dishes that honor tradition
                         while embracing innovation. Our focus on high-quality pork dishes, Spanish tapas, and Italian classics
                         makes us a favorite among locals and visitors alike.
@@ -396,132 +420,132 @@
     </section>
 
     <!-- Featured Highlights Section -->
-    <section class="py-20 px-6 bg-[#F2F2F2] bg-opacity-95 content-section">
+    <section class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-6xl">
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center fade-in-up hover-lift p-8 bg-white rounded-lg">
+                <div class="text-center fade-in-up hover-lift p-8 rounded-lg content-card">
                     <div class="w-16 h-16 bg-[#A62626] rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl mb-3 text-[#1A1A1A]">Spanish Tapas</h3>
-                    <p class="text-[#595959]">Authentic flavors from Spain, crafted with passion and precision</p>
+                    <h3 class="text-2xl mb-3 text-white">Spanish Tapas</h3>
+                    <p class="text-gray-300">Authentic flavors from Spain, crafted with passion and precision</p>
                 </div>
 
-                <div class="text-center fade-in-up hover-lift p-8 bg-white rounded-lg">
+                <div class="text-center fade-in-up hover-lift p-8 rounded-lg content-card">
                     <div class="w-16 h-16 bg-[#A62626] rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl mb-3 text-[#1A1A1A]">Italian Classics</h3>
-                    <p class="text-[#595959]">Handcrafted pastas, steaks, and seafood that honor tradition</p>
+                    <h3 class="text-2xl mb-3 text-white">Italian Classics</h3>
+                    <p class="text-gray-300">Handcrafted pastas, steaks, and seafood that honor tradition</p>
                 </div>
 
-                <div class="text-center fade-in-up hover-lift p-8 bg-white rounded-lg">
+                <div class="text-center fade-in-up hover-lift p-8 rounded-lg content-card">
                     <div class="w-16 h-16 bg-[#A62626] rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M3 2l2.01 18.23C5.13 21.23 5.97 22 7 22h10c1.03 0 1.87-.77 1.99-1.77L21 2H3zm9 17c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl mb-3 text-[#1A1A1A]">Wine Selection</h3>
-                    <p class="text-[#595959]">Curated wines from around the world, expertly paired</p>
+                    <h3 class="text-2xl mb-3 text-white">Wine Selection</h3>
+                    <p class="text-gray-300">Curated wines from around the world, expertly paired</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-20 px-6 bg-white bg-opacity-95 content-section">
+    <section id="menu" class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-4xl md:text-5xl mb-4 text-[#A62626]">Our Menu</h2>
-                <p class="text-xl text-[#595959]">A celebration of Mediterranean and Italian cuisine</p>
+                <p class="text-xl text-gray-200">A celebration of Mediterranean and Italian cuisine</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Tapas & Starters -->
                 <div class="fade-in-up">
-                    <h3 class="text-3xl mb-8 text-[#1A1A1A] border-b-2 border-[#A62626] pb-2">Tapas & Starters</h3>
+                    <h3 class="text-3xl mb-8 text-white border-b-2 border-[#A62626] pb-2">Tapas & Starters</h3>
 
                     <div class="space-y-6">
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Jamón Ibérico</h4>
+                                <h4 class="text-xl font-semibold text-white">Jamón Ibérico</h4>
                                 <span class="text-[#A62626] font-semibold">$24</span>
                             </div>
-                            <p class="text-[#595959]">Premium hand-cut Iberian ham with manchego cheese</p>
+                            <p class="text-gray-300">Premium hand-cut Iberian ham with manchego cheese</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Gambas al Ajillo</h4>
+                                <h4 class="text-xl font-semibold text-white">Gambas al Ajillo</h4>
                                 <span class="text-[#A62626] font-semibold">$18</span>
                             </div>
-                            <p class="text-[#595959]">Garlic shrimp in olive oil with chili flakes</p>
+                            <p class="text-gray-300">Garlic shrimp in olive oil with chili flakes</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Patatas Bravas</h4>
+                                <h4 class="text-xl font-semibold text-white">Patatas Bravas</h4>
                                 <span class="text-[#A62626] font-semibold">$12</span>
                             </div>
-                            <p class="text-[#595959]">Crispy potatoes with spicy tomato sauce and aioli</p>
+                            <p class="text-gray-300">Crispy potatoes with spicy tomato sauce and aioli</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Pulpo a la Gallega</h4>
+                                <h4 class="text-xl font-semibold text-white">Pulpo a la Gallega</h4>
                                 <span class="text-[#A62626] font-semibold">$22</span>
                             </div>
-                            <p class="text-[#595959]">Galician-style octopus with paprika and olive oil</p>
+                            <p class="text-gray-300">Galician-style octopus with paprika and olive oil</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Main Courses -->
                 <div class="fade-in-up">
-                    <h3 class="text-3xl mb-8 text-[#1A1A1A] border-b-2 border-[#A62626] pb-2">Main Courses</h3>
+                    <h3 class="text-3xl mb-8 text-white border-b-2 border-[#A62626] pb-2">Main Courses</h3>
 
                     <div class="space-y-6">
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Osso Buco</h4>
+                                <h4 class="text-xl font-semibold text-white">Osso Buco</h4>
                                 <span class="text-[#A62626] font-semibold">$38</span>
                             </div>
-                            <p class="text-[#595959]">Braised veal shanks with saffron risotto</p>
+                            <p class="text-gray-300">Braised veal shanks with saffron risotto</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Paella Mixta</h4>
+                                <h4 class="text-xl font-semibold text-white">Paella Mixta</h4>
                                 <span class="text-[#A62626] font-semibold">$42</span>
                             </div>
-                            <p class="text-[#595959]">Traditional Spanish rice with seafood and meats</p>
+                            <p class="text-gray-300">Traditional Spanish rice with seafood and meats</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Bistecca alla Fiorentina</h4>
+                                <h4 class="text-xl font-semibold text-white">Bistecca alla Fiorentina</h4>
                                 <span class="text-[#A62626] font-semibold">$52</span>
                             </div>
-                            <p class="text-[#595959]">T-bone steak with rosemary and garlic</p>
+                            <p class="text-gray-300">T-bone steak with rosemary and garlic</p>
                         </div>
 
                         <div class="menu-item p-4 rounded">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-semibold text-[#1A1A1A]">Linguine alle Vongole</h4>
+                                <h4 class="text-xl font-semibold text-white">Linguine alle Vongole</h4>
                                 <span class="text-[#A62626] font-semibold">$28</span>
                             </div>
-                            <p class="text-[#595959]">Fresh pasta with clams in white wine sauce</p>
+                            <p class="text-gray-300">Fresh pasta with clams in white wine sauce</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="text-center mt-12">
-                <p class="text-lg text-[#595959] mb-4">Full menu available at the restaurant</p>
+                <p class="text-lg text-gray-200 mb-4">Full menu available at the restaurant</p>
                 <a href="tel:787-946-1777" class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-full hover:bg-[#A62626] transition-all duration-300">
                     Call for Full Menu
                 </a>
@@ -530,38 +554,38 @@
     </section>
 
     <!-- Gallery Section - Film Strip Style -->
-    <section class="py-20 px-6 bg-[#1A1A1A] bg-opacity-95 content-section">
+    <section class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-6xl mb-12">
             <h2 class="text-4xl md:text-5xl text-center text-white mb-4 fade-in-up">Gallery</h2>
             <p class="text-xl text-gray-300 text-center fade-in-up">Experience our culinary artistry</p>
         </div>
 
         <div class="scroll-gallery gap-6 px-6 pb-4">
-            <div class="gallery-item bg-white rounded-lg overflow-hidden hover-lift">
+            <div class="gallery-item rounded-lg overflow-hidden hover-lift">
                 <div class="h-64 bg-gradient-to-br from-[#A62626] to-[#8B1E1E] flex items-center justify-center">
                     <p class="text-white text-2xl font-light">Signature Tapas</p>
                 </div>
             </div>
 
-            <div class="gallery-item bg-white rounded-lg overflow-hidden hover-lift">
+            <div class="gallery-item rounded-lg overflow-hidden hover-lift">
                 <div class="h-64 bg-gradient-to-br from-[#8B1E1E] to-[#A62626] flex items-center justify-center">
                     <p class="text-white text-2xl font-light">Fresh Seafood</p>
                 </div>
             </div>
 
-            <div class="gallery-item bg-white rounded-lg overflow-hidden hover-lift">
+            <div class="gallery-item rounded-lg overflow-hidden hover-lift">
                 <div class="h-64 bg-gradient-to-br from-[#A62626] to-[#1A1A1A] flex items-center justify-center">
                     <p class="text-white text-2xl font-light">Premium Steaks</p>
                 </div>
             </div>
 
-            <div class="gallery-item bg-white rounded-lg overflow-hidden hover-lift">
+            <div class="gallery-item rounded-lg overflow-hidden hover-lift">
                 <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#8B1E1E] flex items-center justify-center">
                     <p class="text-white text-2xl font-light">Handmade Pasta</p>
                 </div>
             </div>
 
-            <div class="gallery-item bg-white rounded-lg overflow-hidden hover-lift">
+            <div class="gallery-item rounded-lg overflow-hidden hover-lift">
                 <div class="h-64 bg-gradient-to-br from-[#8B1E1E] to-[#A62626] flex items-center justify-center">
                     <p class="text-white text-2xl font-light">Wine Selection</p>
                 </div>
@@ -570,15 +594,15 @@
     </section>
 
     <!-- Private Events Section -->
-    <section id="events" class="py-20 px-6 bg-[#F2F2F2] bg-opacity-95 content-section">
+    <section id="events" class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12 fade-in-up">
                 <h2 class="text-4xl md:text-5xl mb-4 text-[#A62626]">Private Events</h2>
-                <p class="text-xl text-[#595959]">Host your special occasion in an unforgettable setting</p>
+                <p class="text-xl text-gray-200">Host your special occasion in an unforgettable setting</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 fade-in-up">
-                <p class="text-lg text-[#595959] mb-8 text-center">
+            <div class="content-card rounded-lg shadow-xl p-8 md:p-12 fade-in-up">
+                <p class="text-lg text-gray-200 mb-8 text-center">
                     Whether it's a corporate gathering, wedding celebration, or intimate dinner party,
                     our team will create a memorable experience tailored to your needs.
                 </p>
@@ -586,36 +610,36 @@
                 <form class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-[#1A1A1A] mb-2 font-semibold">Name</label>
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors" placeholder="Your name">
+                            <label class="block text-white mb-2 font-semibold">Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white" placeholder="Your name">
                         </div>
 
                         <div>
-                            <label class="block text-[#1A1A1A] mb-2 font-semibold">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors" placeholder="your@email.com">
+                            <label class="block text-white mb-2 font-semibold">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white" placeholder="your@email.com">
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-[#1A1A1A] mb-2 font-semibold">Phone</label>
-                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors" placeholder="(787) 946-1777">
+                            <label class="block text-white mb-2 font-semibold">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white" placeholder="(787) 946-1777">
                         </div>
 
                         <div>
-                            <label class="block text-[#1A1A1A] mb-2 font-semibold">Event Date</label>
-                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors">
+                            <label class="block text-white mb-2 font-semibold">Event Date</label>
+                            <input type="date" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-[#1A1A1A] mb-2 font-semibold">Number of Guests</label>
-                        <input type="number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors" placeholder="20">
+                        <label class="block text-white mb-2 font-semibold">Number of Guests</label>
+                        <input type="number" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white" placeholder="20">
                     </div>
 
                     <div>
-                        <label class="block text-[#1A1A1A] mb-2 font-semibold">Message</label>
-                        <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors" placeholder="Tell us about your event..."></textarea>
+                        <label class="block text-white mb-2 font-semibold">Message</label>
+                        <textarea rows="4" class="w-full px-4 py-3 bg-black bg-opacity-30 border border-[#A62626] border-opacity-30 rounded-lg focus:outline-none focus:border-[#A62626] transition-colors text-white" placeholder="Tell us about your event..."></textarea>
                     </div>
 
                     <div class="text-center">
@@ -629,34 +653,34 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-white bg-opacity-95 content-section">
+    <section id="contact" class="py-20 px-6 content-section">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12 fade-in-up">
                 <h2 class="text-4xl md:text-5xl mb-4 text-[#A62626]">Visit Us</h2>
-                <p class="text-xl text-[#595959]">Where the locals go...</p>
+                <p class="text-xl text-gray-200">Where the locals go...</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Contact Information -->
                 <div class="fade-in-up space-y-6">
                     <div>
-                        <h3 class="text-2xl mb-3 text-[#1A1A1A]">Location</h3>
-                        <p class="text-lg text-[#595959]">San Juan, Puerto Rico</p>
+                        <h3 class="text-2xl mb-3 text-white">Location</h3>
+                        <p class="text-lg text-gray-200">San Juan, Puerto Rico</p>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl mb-3 text-[#1A1A1A]">Phone</h3>
+                        <h3 class="text-2xl mb-3 text-white">Phone</h3>
                         <a href="tel:787-946-1777" class="text-lg text-[#A62626] hover:underline">(787) 946-1777</a>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl mb-3 text-[#1A1A1A]">Email</h3>
+                        <h3 class="text-2xl mb-3 text-white">Email</h3>
                         <a href="mailto:jamonjamon.info@gmail.com" class="text-lg text-[#A62626] hover:underline">jamonjamon.info@gmail.com</a>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl mb-3 text-[#1A1A1A]">Hours</h3>
-                        <div class="text-lg text-[#595959] space-y-1">
+                        <h3 class="text-2xl mb-3 text-white">Hours</h3>
+                        <div class="text-lg text-gray-200 space-y-1">
                             <p>Monday - Thursday: 5:00 PM - 10:00 PM</p>
                             <p>Friday - Saturday: 5:00 PM - 11:00 PM</p>
                             <p>Sunday: Closed</p>
@@ -664,7 +688,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl mb-3 text-[#1A1A1A]">Follow Us</h3>
+                        <h3 class="text-2xl mb-3 text-white">Follow Us</h3>
                         <div class="flex space-x-4">
                             <a href="https://www.facebook.com/jamonjamonpr/" target="_blank" class="w-12 h-12 bg-[#A62626] rounded-full flex items-center justify-center text-white hover:bg-[#8B1E1E] transition-colors">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -682,7 +706,7 @@
 
                 <!-- Map Placeholder -->
                 <div class="fade-in-up">
-                    <div class="w-full h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                    <div class="w-full h-96 rounded-lg overflow-hidden shadow-lg content-card">
                         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#A62626] to-[#1A1A1A]">
                             <div class="text-center text-white">
                                 <svg class="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -698,7 +722,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#1A1A1A] bg-opacity-95 text-white py-12 px-6 content-section">
+    <footer class="bg-black bg-opacity-50 text-white py-12 px-6 content-section">
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0 flex items-center space-x-3">
