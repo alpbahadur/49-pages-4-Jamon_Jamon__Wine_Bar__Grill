@@ -150,65 +150,6 @@
         .meat-chunk:nth-child(5) { left: 25%; top: 100%; width: 95px; height: 75px; animation-delay: 1s; animation-duration: 46s; }
         .meat-chunk:nth-child(6) { left: 60%; top: 100%; width: 85px; height: 65px; animation-delay: 4s; animation-duration: 44s; }
 
-        /* Roaming Meat Pieces - Slowly flying around */
-        .meat-roaming {
-            position: fixed;
-            border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(100, 25, 25, 0.3), rgba(70, 15, 15, 0.2));
-            pointer-events: none;
-            z-index: 15;
-            filter: blur(1.5px);
-            box-shadow: 0 0 20px rgba(100, 25, 25, 0.2);
-        }
-
-        @keyframes roam1 {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1) skew(0deg); opacity: 0.25; }
-            15% { transform: translate(110px, -30px) rotate(54deg) scale(1.15) skew(2deg); opacity: 0.35; }
-            30% { transform: translate(95px, -120px) rotate(108deg) scale(0.9) skew(-3deg); opacity: 0.32; }
-            45% { transform: translate(20px, -140px) rotate(162deg) scale(1.1) skew(1deg); opacity: 0.38; }
-            60% { transform: translate(-50px, -100px) rotate(216deg) scale(1.05) skew(-2deg); opacity: 0.35; }
-            75% { transform: translate(-80px, -40px) rotate(270deg) scale(0.88) skew(2deg); opacity: 0.3; }
-            90% { transform: translate(-30px, 20px) rotate(324deg) scale(1.08) skew(-1deg); opacity: 0.33; }
-            100% { transform: translate(0, 0) rotate(360deg) scale(1) skew(0deg); opacity: 0.25; }
-        }
-
-        @keyframes roam2 {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1) skew(0deg); opacity: 0.28; }
-            20% { transform: translate(-90px, 70px) rotate(-72deg) scale(1.12) skew(-3deg); opacity: 0.36; }
-            35% { transform: translate(-130px, 40px) rotate(-144deg) scale(0.92) skew(2deg); opacity: 0.4; }
-            50% { transform: translate(-110px, -30px) rotate(-216deg) scale(1.18) skew(-1deg); opacity: 0.38; }
-            70% { transform: translate(-40px, -60px) rotate(-288deg) scale(0.95) skew(3deg); opacity: 0.33; }
-            85% { transform: translate(20px, -20px) rotate(-324deg) scale(1.05) skew(-2deg); opacity: 0.31; }
-            100% { transform: translate(0, 0) rotate(-360deg) scale(1) skew(0deg); opacity: 0.28; }
-        }
-
-        @keyframes roam3 {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1) skew(0deg); opacity: 0.26; }
-            18% { transform: translate(100px, 50px) rotate(65deg) scale(1.2) skew(2deg); opacity: 0.35; }
-            35% { transform: translate(120px, 120px) rotate(130deg) scale(0.85) skew(-3deg); opacity: 0.38; }
-            52% { transform: translate(40px, 150px) rotate(195deg) scale(1.1) skew(1deg); opacity: 0.4; }
-            68% { transform: translate(-50px, 110px) rotate(260deg) scale(0.95) skew(-2deg); opacity: 0.36; }
-            84% { transform: translate(-20px, 40px) rotate(325deg) scale(1.15) skew(2deg); opacity: 0.32; }
-            100% { transform: translate(0, 0) rotate(360deg) scale(1) skew(0deg); opacity: 0.26; }
-        }
-
-        @keyframes roam4 {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1) skew(0deg); opacity: 0.3; }
-            25% { transform: translate(80px, -100px) rotate(90deg) scale(1.25) skew(-2deg); opacity: 0.4; }
-            45% { transform: translate(40px, -140px) rotate(180deg) scale(0.8) skew(3deg); opacity: 0.37; }
-            65% { transform: translate(-60px, -80px) rotate(270deg) scale(1.15) skew(-1deg); opacity: 0.35; }
-            85% { transform: translate(-30px, -20px) rotate(315deg) scale(0.9) skew(2deg); opacity: 0.32; }
-            100% { transform: translate(0, 0) rotate(360deg) scale(1) skew(0deg); opacity: 0.3; }
-        }
-
-        .roam-1 { left: 12%; top: 25%; width: 70px; height: 60px; animation: roam1 38s ease-in-out infinite; }
-        .roam-2 { left: 75%; top: 35%; width: 80px; height: 65px; animation: roam2 42s ease-in-out infinite; animation-delay: 2s; }
-        .roam-3 { left: 35%; top: 55%; width: 65px; height: 55px; animation: roam3 40s ease-in-out infinite; animation-delay: 5s; }
-        .roam-4 { left: 68%; top: 18%; width: 75px; height: 62px; animation: roam4 35s ease-in-out infinite; animation-delay: 1s; }
-        .roam-5 { left: 42%; top: 40%; width: 68px; height: 58px; animation: roam1 44s ease-in-out infinite; animation-delay: 4s; }
-        .roam-6 { left: 18%; top: 65%; width: 78px; height: 64px; animation: roam2 39s ease-in-out infinite; animation-delay: 3s; }
-        .roam-7 { left: 82%; top: 75%; width: 66px; height: 56px; animation: roam3 41s ease-in-out infinite; animation-delay: 6s; }
-        .roam-8 { left: 52%; top: 50%; width: 72px; height: 60px; animation: roam4 37s ease-in-out infinite; animation-delay: 2.5s; }
 
         /* Fade In Up Animation */
         .fade-in-up {
@@ -382,16 +323,6 @@
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
-
-    <!-- Roaming Meat Pieces - Flying around -->
-    <div class="meat-roaming roam-1"></div>
-    <div class="meat-roaming roam-2"></div>
-    <div class="meat-roaming roam-3"></div>
-    <div class="meat-roaming roam-4"></div>
-    <div class="meat-roaming roam-5"></div>
-    <div class="meat-roaming roam-6"></div>
-    <div class="meat-roaming roam-7"></div>
-    <div class="meat-roaming roam-8"></div>
 
     <!-- Sticky Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-100 backdrop-blur-sm transition-all duration-300">
