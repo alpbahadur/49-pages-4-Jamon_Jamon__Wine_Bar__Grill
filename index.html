@@ -59,12 +59,11 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Wine Bubbles Animation - On the sides */
+        /* Wine Bubbles Animation - Simple semi-transparent circles */
         .wine-bubble {
             position: fixed;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 100, 100, 0.8), rgba(200, 60, 60, 0.6));
-            box-shadow: 0 0 20px rgba(255, 80, 80, 0.6);
+            background: rgba(255, 100, 100, 0.35);
             animation: bubbleRise 6s ease-in infinite;
             pointer-events: none;
             z-index: 10;
@@ -91,25 +90,25 @@
             }
         }
 
-        /* Wine bubbles on LEFT side */
-        .wine-bubble.left:nth-child(1) { left: 2%; width: 12px; height: 12px; animation-delay: 0s; animation-duration: 7s; }
-        .wine-bubble.left:nth-child(2) { left: 5%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 6.5s; }
-        .wine-bubble.left:nth-child(3) { left: 3%; width: 10px; height: 10px; animation-delay: 3s; animation-duration: 7.5s; }
-        .wine-bubble.left:nth-child(4) { left: 6%; width: 14px; height: 14px; animation-delay: 4.5s; animation-duration: 6s; }
-        .wine-bubble.left:nth-child(5) { left: 4%; width: 9px; height: 9px; animation-delay: 6s; animation-duration: 8s; }
-        .wine-bubble.left:nth-child(6) { left: 7%; width: 11px; height: 11px; animation-delay: 2s; animation-duration: 7s; }
-        .wine-bubble.left:nth-child(7) { left: 2.5%; width: 13px; height: 13px; animation-delay: 5s; animation-duration: 6.8s; }
-        .wine-bubble.left:nth-child(8) { left: 5.5%; width: 10px; height: 10px; animation-delay: 3.5s; animation-duration: 7.2s; }
+        /* Wine bubbles on LEFT side - smaller sizes */
+        .wine-bubble.left:nth-child(1) { left: 2%; width: 8px; height: 8px; animation-delay: 0s; animation-duration: 7s; }
+        .wine-bubble.left:nth-child(2) { left: 5%; width: 6px; height: 6px; animation-delay: 1.5s; animation-duration: 6.5s; }
+        .wine-bubble.left:nth-child(3) { left: 3%; width: 7px; height: 7px; animation-delay: 3s; animation-duration: 7.5s; }
+        .wine-bubble.left:nth-child(4) { left: 6%; width: 9px; height: 9px; animation-delay: 4.5s; animation-duration: 6s; }
+        .wine-bubble.left:nth-child(5) { left: 4%; width: 7px; height: 7px; animation-delay: 6s; animation-duration: 8s; }
+        .wine-bubble.left:nth-child(6) { left: 7%; width: 8px; height: 8px; animation-delay: 2s; animation-duration: 7s; }
+        .wine-bubble.left:nth-child(7) { left: 2.5%; width: 6px; height: 6px; animation-delay: 5s; animation-duration: 6.8s; }
+        .wine-bubble.left:nth-child(8) { left: 5.5%; width: 8px; height: 8px; animation-delay: 3.5s; animation-duration: 7.2s; }
 
-        /* Wine bubbles on RIGHT side */
-        .wine-bubble.right:nth-child(9) { right: 2%; width: 12px; height: 12px; animation-delay: 0.5s; animation-duration: 7s; }
-        .wine-bubble.right:nth-child(10) { right: 5%; width: 8px; height: 8px; animation-delay: 2s; animation-duration: 6.5s; }
-        .wine-bubble.right:nth-child(11) { right: 3%; width: 10px; height: 10px; animation-delay: 3.5s; animation-duration: 7.5s; }
-        .wine-bubble.right:nth-child(12) { right: 6%; width: 14px; height: 14px; animation-delay: 5s; animation-duration: 6s; }
-        .wine-bubble.right:nth-child(13) { right: 4%; width: 9px; height: 9px; animation-delay: 1s; animation-duration: 8s; }
-        .wine-bubble.right:nth-child(14) { right: 7%; width: 11px; height: 11px; animation-delay: 2.5s; animation-duration: 7s; }
-        .wine-bubble.right:nth-child(15) { right: 2.5%; width: 13px; height: 13px; animation-delay: 5.5s; animation-duration: 6.8s; }
-        .wine-bubble.right:nth-child(16) { right: 5.5%; width: 10px; height: 10px; animation-delay: 4s; animation-duration: 7.2s; }
+        /* Wine bubbles on RIGHT side - smaller sizes */
+        .wine-bubble.right:nth-child(9) { right: 2%; width: 8px; height: 8px; animation-delay: 0.5s; animation-duration: 7s; }
+        .wine-bubble.right:nth-child(10) { right: 5%; width: 6px; height: 6px; animation-delay: 2s; animation-duration: 6.5s; }
+        .wine-bubble.right:nth-child(11) { right: 3%; width: 7px; height: 7px; animation-delay: 3.5s; animation-duration: 7.5s; }
+        .wine-bubble.right:nth-child(12) { right: 6%; width: 9px; height: 9px; animation-delay: 5s; animation-duration: 6s; }
+        .wine-bubble.right:nth-child(13) { right: 4%; width: 7px; height: 7px; animation-delay: 1s; animation-duration: 8s; }
+        .wine-bubble.right:nth-child(14) { right: 7%; width: 8px; height: 8px; animation-delay: 2.5s; animation-duration: 7s; }
+        .wine-bubble.right:nth-child(15) { right: 2.5%; width: 6px; height: 6px; animation-delay: 5.5s; animation-duration: 6.8s; }
+        .wine-bubble.right:nth-child(16) { right: 5.5%; width: 8px; height: 8px; animation-delay: 4s; animation-duration: 7.2s; }
 
         /* Meat Chunks Animation - Slow floating shapes */
         .meat-chunk {
@@ -150,6 +149,51 @@
         .meat-chunk:nth-child(4) { left: 85%; top: 100%; width: 70px; height: 55px; animation-delay: 9s; animation-duration: 42s; }
         .meat-chunk:nth-child(5) { left: 25%; top: 100%; width: 95px; height: 75px; animation-delay: 1s; animation-duration: 46s; }
         .meat-chunk:nth-child(6) { left: 60%; top: 100%; width: 85px; height: 65px; animation-delay: 4s; animation-duration: 44s; }
+
+        /* Roaming Meat Pieces - Slowly flying around */
+        .meat-roaming {
+            position: fixed;
+            border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(150, 40, 40, 0.5), rgba(110, 25, 25, 0.3));
+            pointer-events: none;
+            z-index: 5;
+            filter: blur(1.5px);
+            box-shadow: 0 0 20px rgba(150, 40, 40, 0.25);
+        }
+
+        @keyframes roam1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+            25% { transform: translate(70px, -50px) rotate(90deg); opacity: 0.6; }
+            50% { transform: translate(40px, -100px) rotate(180deg); opacity: 0.5; }
+            75% { transform: translate(-30px, -60px) rotate(270deg); opacity: 0.55; }
+        }
+
+        @keyframes roam2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.35; }
+            25% { transform: translate(-50px, 70px) rotate(-90deg); opacity: 0.55; }
+            50% { transform: translate(-100px, 30px) rotate(-180deg); opacity: 0.6; }
+            75% { transform: translate(-60px, -30px) rotate(-270deg); opacity: 0.5; }
+        }
+
+        @keyframes roam3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.4; }
+            33% { transform: translate(80px, 60px) rotate(120deg) scale(1.1); opacity: 0.6; }
+            66% { transform: translate(-40px, 120px) rotate(240deg) scale(0.9); opacity: 0.5; }
+        }
+
+        @keyframes roam4 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.5; }
+            50% { transform: translate(50px, -80px) rotate(180deg) scale(1.15); opacity: 0.65; }
+        }
+
+        .meat-roaming:nth-child(1) { left: 12%; top: 25%; width: 55px; height: 48px; animation: roam1 38s ease-in-out infinite; }
+        .meat-roaming:nth-child(2) { left: 75%; top: 35%; width: 65px; height: 52px; animation: roam2 42s ease-in-out infinite; animation-delay: 2s; }
+        .meat-roaming:nth-child(3) { left: 35%; top: 55%; width: 48px; height: 42px; animation: roam3 40s ease-in-out infinite; animation-delay: 5s; }
+        .meat-roaming:nth-child(4) { left: 68%; top: 18%; width: 58px; height: 50px; animation: roam4 35s ease-in-out infinite; animation-delay: 1s; }
+        .meat-roaming:nth-child(5) { left: 42%; top: 40%; width: 52px; height: 45px; animation: roam1 44s ease-in-out infinite; animation-delay: 4s; }
+        .meat-roaming:nth-child(6) { left: 18%; top: 65%; width: 62px; height: 51px; animation: roam2 39s ease-in-out infinite; animation-delay: 3s; }
+        .meat-roaming:nth-child(7) { left: 82%; top: 75%; width: 50px; height: 44px; animation: roam3 41s ease-in-out infinite; animation-delay: 6s; }
+        .meat-roaming:nth-child(8) { left: 52%; top: 50%; width: 56px; height: 48px; animation: roam4 37s ease-in-out infinite; animation-delay: 2.5s; }
 
         /* Fade In Up Animation */
         .fade-in-up {
@@ -316,13 +360,23 @@
     <div class="wine-bubble right"></div>
     <div class="wine-bubble right"></div>
 
-    <!-- Meat Chunks - Slow floating -->
+    <!-- Meat Chunks - Rising from bottom -->
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
     <div class="meat-chunk"></div>
+
+    <!-- Roaming Meat Pieces - Flying around -->
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
+    <div class="meat-roaming"></div>
 
     <!-- Sticky Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm transition-all duration-300">
