@@ -41,7 +41,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(-45deg, #3D1010, #5A1515, #1A1A1A, #4A0E0E, #3D1010);
+            background: linear-gradient(-45deg, #2D0A0A, #3D1010, #1A1A1A, #3A0E0E, #2D0A0A);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             z-index: 0;
@@ -154,46 +154,46 @@
         .meat-roaming {
             position: fixed;
             border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(150, 40, 40, 0.5), rgba(110, 25, 25, 0.3));
+            background: radial-gradient(ellipse at 50% 50%, rgba(200, 60, 60, 0.8), rgba(140, 35, 35, 0.6));
             pointer-events: none;
-            z-index: 5;
+            z-index: 15;
             filter: blur(1.5px);
-            box-shadow: 0 0 20px rgba(150, 40, 40, 0.25);
+            box-shadow: 0 0 35px rgba(200, 60, 60, 0.5);
         }
 
         @keyframes roam1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
-            25% { transform: translate(70px, -50px) rotate(90deg); opacity: 0.6; }
-            50% { transform: translate(40px, -100px) rotate(180deg); opacity: 0.5; }
-            75% { transform: translate(-30px, -60px) rotate(270deg); opacity: 0.55; }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+            25% { transform: translate(70px, -50px) rotate(90deg); opacity: 0.9; }
+            50% { transform: translate(40px, -100px) rotate(180deg); opacity: 0.8; }
+            75% { transform: translate(-30px, -60px) rotate(270deg); opacity: 0.85; }
         }
 
         @keyframes roam2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.35; }
-            25% { transform: translate(-50px, 70px) rotate(-90deg); opacity: 0.55; }
-            50% { transform: translate(-100px, 30px) rotate(-180deg); opacity: 0.6; }
-            75% { transform: translate(-60px, -30px) rotate(-270deg); opacity: 0.5; }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.65; }
+            25% { transform: translate(-50px, 70px) rotate(-90deg); opacity: 0.85; }
+            50% { transform: translate(-100px, 30px) rotate(-180deg); opacity: 0.9; }
+            75% { transform: translate(-60px, -30px) rotate(-270deg); opacity: 0.8; }
         }
 
         @keyframes roam3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.4; }
-            33% { transform: translate(80px, 60px) rotate(120deg) scale(1.1); opacity: 0.6; }
-            66% { transform: translate(-40px, 120px) rotate(240deg) scale(0.9); opacity: 0.5; }
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.7; }
+            33% { transform: translate(80px, 60px) rotate(120deg) scale(1.1); opacity: 0.9; }
+            66% { transform: translate(-40px, 120px) rotate(240deg) scale(0.9); opacity: 0.8; }
         }
 
         @keyframes roam4 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.5; }
-            50% { transform: translate(50px, -80px) rotate(180deg) scale(1.15); opacity: 0.65; }
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.75; }
+            50% { transform: translate(50px, -80px) rotate(180deg) scale(1.15); opacity: 0.95; }
         }
 
-        .meat-roaming:nth-child(1) { left: 12%; top: 25%; width: 55px; height: 48px; animation: roam1 38s ease-in-out infinite; }
-        .meat-roaming:nth-child(2) { left: 75%; top: 35%; width: 65px; height: 52px; animation: roam2 42s ease-in-out infinite; animation-delay: 2s; }
-        .meat-roaming:nth-child(3) { left: 35%; top: 55%; width: 48px; height: 42px; animation: roam3 40s ease-in-out infinite; animation-delay: 5s; }
-        .meat-roaming:nth-child(4) { left: 68%; top: 18%; width: 58px; height: 50px; animation: roam4 35s ease-in-out infinite; animation-delay: 1s; }
-        .meat-roaming:nth-child(5) { left: 42%; top: 40%; width: 52px; height: 45px; animation: roam1 44s ease-in-out infinite; animation-delay: 4s; }
-        .meat-roaming:nth-child(6) { left: 18%; top: 65%; width: 62px; height: 51px; animation: roam2 39s ease-in-out infinite; animation-delay: 3s; }
-        .meat-roaming:nth-child(7) { left: 82%; top: 75%; width: 50px; height: 44px; animation: roam3 41s ease-in-out infinite; animation-delay: 6s; }
-        .meat-roaming:nth-child(8) { left: 52%; top: 50%; width: 56px; height: 48px; animation: roam4 37s ease-in-out infinite; animation-delay: 2.5s; }
+        .meat-roaming:nth-child(1) { left: 12%; top: 25%; width: 70px; height: 60px; animation: roam1 38s ease-in-out infinite; }
+        .meat-roaming:nth-child(2) { left: 75%; top: 35%; width: 80px; height: 65px; animation: roam2 42s ease-in-out infinite; animation-delay: 2s; }
+        .meat-roaming:nth-child(3) { left: 35%; top: 55%; width: 65px; height: 55px; animation: roam3 40s ease-in-out infinite; animation-delay: 5s; }
+        .meat-roaming:nth-child(4) { left: 68%; top: 18%; width: 75px; height: 62px; animation: roam4 35s ease-in-out infinite; animation-delay: 1s; }
+        .meat-roaming:nth-child(5) { left: 42%; top: 40%; width: 68px; height: 58px; animation: roam1 44s ease-in-out infinite; animation-delay: 4s; }
+        .meat-roaming:nth-child(6) { left: 18%; top: 65%; width: 78px; height: 64px; animation: roam2 39s ease-in-out infinite; animation-delay: 3s; }
+        .meat-roaming:nth-child(7) { left: 82%; top: 75%; width: 66px; height: 56px; animation: roam3 41s ease-in-out infinite; animation-delay: 6s; }
+        .meat-roaming:nth-child(8) { left: 52%; top: 50%; width: 72px; height: 60px; animation: roam4 37s ease-in-out infinite; animation-delay: 2.5s; }
 
         /* Fade In Up Animation */
         .fade-in-up {
