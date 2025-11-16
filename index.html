@@ -461,7 +461,7 @@
 
     <!-- Menu Section -->
     <section id="menu" class="py-20 px-6 content-section">
-        <div class="container mx-auto max-w-4xl">
+        <div class="container mx-auto max-w-2xl">
             <div class="text-center mb-12 fade-in-up">
                 <h2 class="text-4xl md:text-5xl mb-4 text-[#A62626]">Our Menu</h2>
                 <p class="text-xl text-gray-200">A celebration of Mediterranean and Italian cuisine</p>
@@ -481,15 +481,21 @@
             <div class="fade-in-up">
                 <!-- Regular Menu -->
                 <div id="regularMenu" class="menu-content">
-                    <div class="content-card rounded-lg shadow-xl overflow-hidden">
+                    <div class="content-card rounded-lg shadow-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity" onclick="openMenuModal('assets/menu.webp')">
                         <img src="assets/menu.webp" alt="Jamon Jamon Menu" class="w-full h-auto">
+                        <div class="text-center py-2 bg-black bg-opacity-50">
+                            <p class="text-white text-sm">Click to view full size</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Desserts Menu -->
                 <div id="dessertsMenu" class="menu-content hidden">
-                    <div class="content-card rounded-lg shadow-xl overflow-hidden">
+                    <div class="content-card rounded-lg shadow-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity" onclick="openMenuModal('assets/desertsmenu.webp')">
                         <img src="assets/desertsmenu.webp" alt="Jamon Jamon Desserts Menu" class="w-full h-auto">
+                        <div class="text-center py-2 bg-black bg-opacity-50">
+                            <p class="text-white text-sm">Click to view full size</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -502,6 +508,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-95 flex items-center justify-center p-4" onclick="closeMenuModal()">
+        <button class="absolute top-4 right-4 text-white text-4xl hover:text-[#A62626] transition-colors z-[101]" onclick="closeMenuModal()">
+            &times;
+        </button>
+        <div class="max-w-5xl max-h-[90vh] overflow-auto" onclick="event.stopPropagation()">
+            <img id="modalMenuImage" src="" alt="Menu" class="w-full h-auto">
+        </div>
+    </div>
 
     <!-- Gallery Section - Film Strip Style -->
     <section class="py-20 px-6 content-section">
@@ -843,6 +859,28 @@
                 document.getElementById('dessertsMenuTab').classList.add('bg-[#A62626]', 'text-white');
             }
         }
+
+        // Menu Modal Functions
+        function openMenuModal(imageSrc) {
+            const modal = document.getElementById('menuModal');
+            const modalImage = document.getElementById('modalMenuImage');
+            modalImage.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeMenuModal() {
+            const modal = document.getElementById('menuModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenuModal();
+            }
+        });
     </script>
 </body>
 </html>
